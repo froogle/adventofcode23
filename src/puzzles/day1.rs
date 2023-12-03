@@ -2,7 +2,7 @@ use crate::utils;
 
 
 pub fn part1() {
-    println!("Advent 23 part 1");
+    println!("Advent 23 day 1 part 1");
     let input_lines = utils::files::read_strings("inputs/23_day_1.txt").unwrap();
     let mut total = 0;
 
@@ -14,7 +14,7 @@ pub fn part1() {
 }
 
 pub fn part2() {
-    println!("Advent 23 part 2");
+    println!("Advent 23 day 1 part 2");
     let mut total = 0;
 
     let input_lines = utils::files::read_strings("inputs/23_day_1.txt").unwrap();
