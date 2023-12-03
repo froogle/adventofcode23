@@ -10,7 +10,7 @@ pub fn part1() {
         let num = build_number(line);
         total += num;
     }
-    println!("The total is {}", total);
+    println!("The answer is {}", total);
 }
 
 pub fn part2() {
@@ -49,7 +49,7 @@ pub fn part2() {
         let num = build_number(&line);
         total += num;
     }
-    println!("The total is {}", total);
+    println!("The answer is {}", total);
 }
 
 
