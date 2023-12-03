@@ -15,7 +15,7 @@ pub fn part2() {
                        
                     let mut grid = String::new();
                     let grid_start  = m.start().saturating_sub(1); 
-                    let grid_end = m.end(); //m.end().saturating_add(1).min(input_lines[i].len());
+                    let grid_end = m.end(); 
      
                     if i > 0 {             
                         grid.push_str(build_grid_line(grid_start, &input_lines[i-1], grid_end));
