@@ -15,6 +15,12 @@ pub fn read_strings(path: &str) -> Result<Vec<String>, Error> {
     Ok(content.lines().map(|s| s.to_string()).collect())
 }
 
+/// Read a file and return a vector of strings, but replacing a a specified character with something
+pub fn read_strings_replace(path: &str, replace: &str, with: &str) -> Result<Vec<String>, Error> {
+    let  content = read_file(path)?;
+    Ok(content.lines().map(|s| s.replace(replace, with)).collect())
+} 
+
 /// Read a file and parse each line as an integer, returning a vector of all integers
 pub fn read_ints(path: &str) -> Result<Vec<i32>, Error> {
     let  content = read_file(path)?;
