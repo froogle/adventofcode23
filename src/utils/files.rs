@@ -18,7 +18,8 @@ pub fn read_strings(path: &str) -> Result<Vec<String>, Error> {
 /// Read a file and return a vector of strings, but replacing a a specified character with something
 pub fn read_strings_replace(path: &str, replace: &str, with: &str) -> Result<Vec<String>, Error> {
     let  content = read_file(path)?;
-    Ok(content.lines().map(|s| s.replace(replace, with)).collect())
+    let regex = regex::Regex::new(replace).unwrap();
+    Ok(content.lines().map(|s| regex.replace_all(s, with).into_owned()).collect())
 } 
 
 /// Read a file and parse each line as an integer, returning a vector of all integers
