@@ -51,11 +51,9 @@ pub fn part1() {
       }
     }
 
-    // replace locations with final_destinations
     locations = final_destinations;
   }
 
-  // sort locations and print the first value
   locations.sort();
   println!("Part 1: {}", locations[0]);
 
