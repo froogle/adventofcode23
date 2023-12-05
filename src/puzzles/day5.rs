@@ -1,5 +1,4 @@
 use crate::utils;
-use std::collections::HashMap;
 
 pub fn part1() {
   println!("Advent 23, day 5");
@@ -55,7 +54,7 @@ pub fn part1() {
   }
 
   locations.sort();
-  println!("Part 1: {}", locations[0]);
+  println!("The answer to part 1 is {}", locations[0]);
 
 
 }
