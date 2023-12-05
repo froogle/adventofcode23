@@ -13,9 +13,7 @@ pub fn part1() {
   for group in input_lines {
 
     if locations.is_empty() {
-      for location in group {
-        locations.push(location);
-      }
+      build_initial_seed_list(&group, &mut locations);
       continue;
     }
 
@@ -30,12 +28,7 @@ pub fn part1() {
         count = value;
 
         for (i, source_location) in locations.clone().iter().enumerate() {
-          let limit = source + count;
-
-          if source_location >= &source && source_location < &limit {
-            removals.push(i);
-            final_destinations.push(destination + (source_location - source));
-        }
+          check_seed_location(source, count, source_location, &mut removals, i, &mut final_destinations, destination);
       }
 
         source = -1;
@@ -44,11 +37,7 @@ pub fn part1() {
       }
     }
 
-    for (i, source_location) in locations.iter().enumerate() {
-      if !removals.contains(&i) {
-        final_destinations.push(*source_location);
-      }
-    }
+    cleanup_seed_locations(&locations, removals, &mut final_destinations);
 
     locations = final_destinations;
   }
@@ -57,4 +46,27 @@ pub fn part1() {
   println!("The answer to part 1 is {}", locations[0]);
 
 
+}
+
+fn cleanup_seed_locations(locations: &Vec<i64>, removals: Vec<usize>, final_destinations: &mut Vec<i64>) {
+    for (i, source_location) in locations.iter().enumerate() {
+      if !removals.contains(&i) {
+        final_destinations.push(*source_location);
+      }
+    }
+}
+
+fn check_seed_location(source: i64, count: i64, source_location: &i64, removals: &mut Vec<usize>, i: usize, final_destinations: &mut Vec<i64>, destination: i64) {
+    let limit = source + count;
+
+    if source_location >= &source && source_location < &limit {
+    removals.push(i);
+    final_destinations.push(destination + (source_location - source));
+            }
+}
+
+fn build_initial_seed_list(group: &Vec<i64>, locations: &mut Vec<i64>) {
+    for location in group {
+        locations.push(*location);
+      }
 }
