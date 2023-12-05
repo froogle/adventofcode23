@@ -14,6 +14,8 @@ fn main() {
 
     puzzles::day4::part1();
     puzzles::day4::part2();
+
+    puzzles::day5::part1();
 }
 
 
